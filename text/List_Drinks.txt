@@ -1,0 +1,5 @@
+Cà phê;D001;25000;35000;Nhà cung cấp A;500;Nước uống
+Trà sữa;D002;20000;30000;Nhà cung cấp B;300;Nước uống
+Nước cam;D003;15000;20000;Nhà cung cấp C;200;Nước trái cây
+Soda;D004;10000;15000;Nhà cung cấp D;400;Nước giải khát
+Nước lọc;D005;5000;7000;Nhà cung cấp E;1000;Nước uống

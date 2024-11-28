@@ -1,0 +1,5 @@
+Bút bi;SP001;1000;1500;Nhà cung cấp A;100;Bút
+Vở học sinh;SP002;5000;7000;Nhà cung cấp B;200;Vở
+Sổ tay;SP003;3000;4500;Nhà cung cấp C;50;Sổ
+Bảng trắng;SP004;100000;150000;Nhà cung cấp D;10;Bảng
+Bút chì;SP005;2000;3000;Nhà cung cấp E;150;Bút

@@ -1,0 +1,5 @@
+Dây chuyền;PB001;100000;150000;Nhà cung cấp A;50;Trang sức
+Đồng hồ;PB002;500000;800000;Nhà cung cấp B;30;Đồng hồ
+Túi xách;PB003;200000;350000;Nhà cung cấp C;100;Phụ kiện
+Ví da;PB004;100000;200000;Nhà cung cấp D;75;Ví
+Bút ký;PB005;50000;90000;Nhà cung cấp E;200;Bút
