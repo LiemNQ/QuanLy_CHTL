@@ -1,0 +1,5 @@
+NV001, Nguyen Van A, 01/01/1990, Nam, 123, Le Loi, Phuong 1, Quan 1, 0901234567, 01/03/2015  
+NV002, Tran Thi Bich Ngoc, 15/05/1992, Nu, 45/7, Nguyen Hue, Phuong 3, Quan 3, 0902345678, 10/06/2016  
+NV003, Le Hoang Minh, 20/09/1988, Nam, 78, Tran Hung Dao, Phuong 5, Quan 5, 0903456789, 15/07/2017  
+NV004, Pham Thu Ha, 05/12/1995, Nu, 101, Cach Mang Thang 8, Phuong 10, Quan 10, 0904567890, 20/08/2018  
+NV005, Doan Van Khoa, 25/03/1993, Nam, 33, Nguyen Van Troi, Phuong 2, Quan Tan Binh, 0905678901, 30/09/2019

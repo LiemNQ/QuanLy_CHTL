@@ -1,6 +1,7 @@
 package QuanLyCHTL;
 
 import text2.*;
+
 import java.util.Scanner;
 
 public class KhachHang extends ConNguoi {
@@ -42,6 +43,7 @@ public class KhachHang extends ConNguoi {
     public void setLoaiKH(String loaiKH) {
         this.loaiKH = loaiKH;
     }
+    // ------------------------
 
     // Ham nhap khach hang
     @Override
@@ -61,9 +63,19 @@ public class KhachHang extends ConNguoi {
         System.out.printf("Loai khach hang: %s\n", this.loaiKH);
     }
 
+    public String xuat_file() {
+        return maHk + ", " + getHoTen() + ", " + getNgaySinh().xuat() + ", " + getGioiTinh() + ", " + getDiaChi().xuat()
+                + ", " + getSDT() + ", " + loaiKH;
+    }
+
+    public void xuat_DinhDang() {
+        System.out.printf("%-6s| %-20s| %-12s| %-4s| %-50s| %-11s| %-30s|\n", maHk, getHoTen(),
+                getNgaySinh().xuat(), getGioiTinh(), getDiaChi().xuat(), getSDT(), loaiKH);
+    }
+
     public static void main(String[] args) {
         KhachHang kh1 = new KhachHang();
         kh1.nhap();
-        kh1.xuat();
+        kh1.xuat_DinhDang();
     }
 }

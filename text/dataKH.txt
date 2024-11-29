@@ -1,0 +1,19 @@
+KH001, Nguyen Van A, 1/1/1985, Nam, 123, Ly Thuong Kiet, Phuong 5, Quan 10, 0901234567, Khach hang than thiet  
+KH002, Tran Thi B, 15/3/1990, Nu, 45, Nguyen Hue, Phuong Ben Nghe, Quan 1, 0932233445, Khach hang moi  
+KH003, Le Van C, 20/7/1982, Nam, 78, Truong Chinh, Phuong 15, Quan Tan Binh, 0904455667, Khach hang thuong xuyen  
+KH004, Pham Thi D, 5/10/1995, Nu, 12, Nguyen Van Cu, Phuong 1, Quan 5, 0911223344, Khach hang moi  
+KH005, Hoang Van E, 9/12/1988, Nam, 456, Lac Long Quan, Phuong 10, Quan 11, 0934567890, Khach hang than thiet  
+KH006, Bui Thi F, 18/8/1992, Nu, 89, Hai Ba Trung, Phuong 6, Quan 3, 0987654321, Khach hang moi  
+KH007, Dang Van G, 25/5/1980, Nam, 67, Cach Mang Thang Tam, Phuong 13, Quan Tan Binh, 0976543210, Khach hang thuong xuyen  
+KH008, Nguyen Thi H, 30/11/1997, Nu, 23, Vo Thi Sau, Phuong Da Kao, Quan 1, 0966789900, Khach hang than thiet  
+KH009, Le Van I, 14/4/1985, Nam, 89, Pasteur, Phuong 7, Quan 3, 0901122334, Khach hang thuong xuyen  
+KH010, Tran Thi K, 7/6/1991, Nu, 56, Dien Bien Phu, Phuong 15, Quan Binh Thanh, 0945567788, Khach hang moi  
+KH011, Pham Van L, 21/9/1983, Nam, 65, Hoang Hoa Tham, Phuong 12, Quan Tan Binh, 0933445566, Khach hang than thiet  
+KH012, Nguyen Van M, 12/1/1979, Nam, 34, Tran Phu, Phuong 3, Quan 5, 0911228899, Khach hang thuong xuyen  
+KH013, Vo Thi N, 27/2/1996, Nu, 98, Le Loi, Phuong Ben Thanh, Quan 1, 0977889900, Khach hang moi  
+KH014, Le Van O, 13/3/1987, Nam, 75, Nguyen Dinh Chieu, Phuong 6, Quan 3, 0922233445, Khach hang than thiet  
+KH015, Tran Thi P, 5/7/1994, Nu, 19, Au Co, Phuong 14, Quan Tan Phu, 0981122334, Khach hang thuong xuyen  
+KH016, Nguyen Van Q, 9/10/1980, Nam, 89, Truong Sa, Phuong 11, Quan Phu Nhuan, 0937788990, Khach hang moi  
+KH017, Pham Thi R, 16/12/1989, Nu, 120, Nguyen Trai, Phuong 2, Quan 5, 0905566778, Khach hang than thiet  
+KH018, Le Van S, 28/8/1993, Nam, 45, Hoang Van Thu, Phuong 9, Quan Phu Nhuan, 0913445566, Khach hang moi  
+KH019, Bui Thi T, 4/11/1984, Nu, 67, Nguyen Kiem, Phuong 4, Quan Go Vap, 0926678899, Khach hang thuong xuyen 

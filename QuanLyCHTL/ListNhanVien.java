@@ -1,5 +1,10 @@
 package QuanLyCHTL;
 
+import text.*;
+import text2.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -39,11 +44,11 @@ public class ListNhanVien {
 
     // Ham xuat danh sach nhan vien
     public void xuatDanhSach() {
+        System.out.println("--------------------------Danh sach nhan vien----------------------------");
         for (int index = 0; index < this.n; index++) {
-            System.out.printf("Thong tin nhan vien thu %d\n", index);
-            dsnv[index].xuat();
-            System.out.println("------------------------");
+            dsnv[index].xuat_DinhDang();
         }
+        System.out.println("-------------------------------------------------------------------------");
     }
 
     // Ham them nhan vien
@@ -56,6 +61,7 @@ public class ListNhanVien {
         System.out.print("Nhap lua chon: ");
         Scanner rScanner = new Scanner(System.in);
         int choice = rScanner.nextInt();
+        rScanner.nextLine();
         switch (choice) {
             case 1:
                 dsnv = Arrays.copyOf(dsnv, this.n + 1);
@@ -179,6 +185,7 @@ public class ListNhanVien {
         System.out.print("Nhap lua chon: ");
         Scanner rScanner = new Scanner(System.in);
         int choice = rScanner.nextInt();
+        rScanner.nextLine();
         switch (choice) {
             case 1:
                 System.out.print("Nhap id nhan vien can tim: ");
@@ -213,11 +220,116 @@ public class ListNhanVien {
         }
     }
 
+    // Ham doc file
+    public static void docFile(ListNhanVien DSNV) {
+        try {
+            BufferedReader input = new BufferedReader(new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\dataNV.txt"));
+            String line = input.readLine();
+            while (line != null) {
+                int n = DSNV.n;
+                DSNV.dsnv = Arrays.copyOf(DSNV.dsnv, n + 1);
+                DSNV.dsnv[n] = new NhanVien();
+                // chia chuỗi thành các chuỗi con phân cách bởi dấu phẩy
+                String[] arr = line.split(", ");
+                // lay ma NV
+                DSNV.dsnv[n].setMaNV(arr[0]);
+                // lay ten NV
+                DSNV.dsnv[n].setHoTen(arr[1]);
+                // lay ngay thang nam sinh
+                String arr1[] = arr[2].split("/");
+                Date date1 = new Date(Integer.parseInt(arr1[0]), Integer.parseInt(arr1[1]), Integer.parseInt(arr1[2]));
+                DSNV.dsnv[n].setNgaySinh(date1);
+                // lay gioi tinh
+                DSNV.dsnv[n].setGioiTinh(arr[3]);
+                // lay dia chi
+                DiaChi diachi = new DiaChi(arr[4], arr[5], arr[6], arr[7]);
+                DSNV.dsnv[n].setDiaChi(diachi);
+                // lay SDT
+                DSNV.dsnv[n].setSDT(arr[8]);
+                // lay ngay vao lam
+                String arr2[] = arr[9].trim().split("/");
+                Date date2 = new Date(Integer.parseInt(arr2[0]), Integer.parseInt(arr2[1]), Integer.parseInt(arr2[2]));
+                DSNV.dsnv[n].setNgayVaoLam(date2);
+                line = input.readLine();
+                DSNV.n++;
+            }
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    // Ham ghi file
+    public static void ghiFile(ListNhanVien DSNV) {
+        try {
+            FileWriter fw = new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\dataNV.txt");
+            int i = 0;
+            while (i < DSNV.n) {
+                fw.write(DSNV.dsnv[i].xuat_file());
+                fw.write("\n");
+                i++;
+            }
+            fw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Ham menu
+    public static void menu(ListNhanVien DSNV) {
+        boolean flag = true;
+        while (flag) {
+            System.out.println("----MENU-----");
+            System.out.println("1.Nhap danh sach nhan vien.");
+            System.out.println("2.Them nhan vien.");
+            System.out.println("3.Xoa nhan vien.");
+            System.out.println("4.Sua nhan vien.");
+            System.out.println("5.Tim kiem nhan vien.");
+            System.out.println("6.Xuat danh sach nhan vien.");
+            System.out.println("7.Doc file.");
+            System.out.println("8.Ghi file.");
+            System.out.println("0.Thoat.");
+            System.out.print("Nhap lua chon: ");
+            Scanner rScanner = new Scanner(System.in);
+            int choice = rScanner.nextInt();
+            rScanner.nextLine();
+            switch (choice) {
+                case 1:
+                    DSNV.nhapDanhSach();
+                    break;
+                case 2:
+                    DSNV.them();
+                    break;
+                case 3:
+                    DSNV.sua();
+                    break;
+                case 4:
+                    DSNV.xoa();
+                    break;
+                case 5:
+                    DSNV.timKiem();
+                    break;
+                case 6:
+                    DSNV.xuatDanhSach();
+                    break;
+                case 7:
+                    docFile(DSNV);
+                    break;
+                case 8:
+                    ghiFile(DSNV);
+                    break;
+                case 0:
+                    flag = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
         ListNhanVien danhsach1 = new ListNhanVien();
-        danhsach1.them();
-        danhsach1.xuatDanhSach();
-        danhsach1.xoa();
-        danhsach1.xuatDanhSach();
+        menu(danhsach1);
     }
 }

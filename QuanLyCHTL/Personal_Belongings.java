@@ -2,6 +2,8 @@ package QuanLyCHTL;
 
 public class Personal_Belongings extends Products {
     public String Personal_Belongings_type;
+    protected String ID_Personal_Belongings = "PB00";
+    protected String ma;
 
     public Personal_Belongings() {
         super();
@@ -24,33 +26,44 @@ public class Personal_Belongings extends Products {
 
     @Override
     public void NhapLieu() {
-        System.out.println("\nNhap ten san pham :");
+        System.out.println("=======================================================================");
+        System.out.println("------NHAP THONG TIN SAN PHAM!-----");
+        System.out.printf("\nNhap ten san pham :");
         this.tenSP = reader.nextLine();
-        System.out.println("\nNhap ma san pham :");
-        this.maSP = reader.nextLine();
+        System.out.printf("\nNhap ma san pham :PB00-");
+        this.ma = reader.nextLine();
+        this.maSP = ID_Personal_Belongings + "" + this.ma;
         System.out.printf("\nNhap loai do dung ca nhan :");
         this.Personal_Belongings_type = reader.nextLine();
-        reader.nextInt();
-        System.out.println("\nNhap gia mua vao san pham :");
+        System.out.printf("\nNhap gia mua vao san pham :");
         this.giaMua = reader.nextInt();
-        System.out.println("\nNhap gia ban san pham :");
+        System.out.printf("\nNhap gia ban san pham :");
         this.giaBan = reader.nextInt();
 
         reader.nextLine();
-        System.out.println("\nNhap nha cung cap cua san pham :");
+        System.out.printf("\nNhap nha cung cap cua san pham :");
         this.nhaCungcap = reader.nextLine();
-        System.out.println("\nNhap so luong san pham :");
+        System.out.printf("\nNhap so luong san pham :");
         this.soLuong = reader.nextInt();
+        System.out.println("=======================================================================");
     }
 
     @Override
     public void Xuat() {
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("------THONG TIN SAN PHAM!-----");
         System.out.println("Ten san pham :" + this.tenSP);
         System.out.println("Ma san pham :" + this.maSP);
+        System.out.println("Loai do dung ca nhan :" + this.Personal_Belongings_type);
         System.out.println("Gia mua san pham :" + this.giaMua);
         System.out.println("Gia ban san pham :" + this.giaBan);
         System.out.println("Nha cung cap san pham :" + this.nhaCungcap);
         System.out.println("So luong san pham :" + this.soLuong);
-        System.out.println("Loai do dung ca nhan :" + this.Personal_Belongings_type);
+        System.out.println("----------------------------------------------------------------------");
+    }
+
+    public String Xuat_file() {
+        return tenSP + ";" + maSP + ";" + giaMua + ";" + giaBan + ";" + nhaCungcap + ";" + soLuong + ";"
+                + Personal_Belongings_type;
     }
 }

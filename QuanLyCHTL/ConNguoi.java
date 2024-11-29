@@ -3,8 +3,6 @@ package QuanLyCHTL;
 import text2.*;
 import java.util.Scanner;
 
-import text2.Date;
-
 public class ConNguoi {
     private String hoTen;
     private Date ngaySinh;
@@ -77,6 +75,7 @@ public class ConNguoi {
     public void setSDT(String sDT) {
         SDT = sDT;
     }
+    // ----------------------
 
     public void nhap() {
         Scanner rScanner = new Scanner(System.in);
@@ -111,10 +110,6 @@ public class ConNguoi {
     }
 
     public static void main(String[] args) {
-        Date ngaySinh = new Date(1, 1, 2022);
-        DiaChi diaChi = new DiaChi("10B/1", "Huynh Tan Phat", "f1", "q7");
-        ConNguoi cn = new ConNguoi("Phat", ngaySinh, "nam", diaChi, "0338386274");
-        cn.xuat();
         ConNguoi cn1 = new ConNguoi();
         cn1.nhap();
         cn1.xuat();

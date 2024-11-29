@@ -86,7 +86,7 @@ public class Date {
     }
 
     public String xuat() {
-        return this.ngay + "/" + this.thang + "/" + this.nam + ".";
+        return this.ngay + "/" + this.thang + "/" + this.nam;
     }
 
     public static void main(String[] args) {

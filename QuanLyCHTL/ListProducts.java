@@ -24,14 +24,18 @@ public class ListProducts {
     public void MENU() {
         int choice = -1;
         while (choice != 0) {
+            System.out.println("\n=======================================================================");
+            System.out.println("----------MENU----------");
             System.out.printf("1.ADD PRODUCT");
             System.out.printf("\n2.DELETE PRODUCT");
             System.out.printf("\n3.SHOW PRODUCT");
             System.out.printf("\n4.FIND PRODUCT");
             System.out.printf("\n5.EDIT PRODUCT");
-            System.out.printf("\n0.Exit");
-            System.out.printf("\nNhap lua chon: ");
+            System.out.println("\n0.Exit");
+            System.out.println("----------------");
+            System.out.printf("\n==>Nhap lua chon: ");
             choice = reader.nextInt();
+            System.out.println("\n=======================================================================");
             switch (choice) {
                 case 1:
                     add();
@@ -57,19 +61,29 @@ public class ListProducts {
         }
     }
 
+    public static void main(String[] args) {
+        ListProducts ob = new ListProducts();
+        ob.MENU();
+    }
+
     // ================================================================================================================================================================//
     // ADD
     // ================================================================================================================================================================//
 
     public void add() {
-        int choice = -1;
-        while (choice != 0) {
+        boolean flag = true;
+        while (flag) {
+            System.out.println("\n=======================================================================");
+            System.out.println("-----THEM SAN PHAM!-----");
             System.out.printf("1.Stationeries");
             System.out.printf("\n2.Personal_Belongings");
             System.out.printf("\n3.Drinks");
-            System.out.printf("\n0.Exit");
-            System.out.printf("\nNhap lua chon: ");
-            choice = reader.nextInt();
+            System.out.println("\n0.Exit");
+            System.out.println("----------------");
+            System.out.printf("\n==>Enter the type of product you want to add: ");
+            int choice = reader.nextInt();
+            System.out.println("\n=======================================================================");
+            reader.nextLine();
             switch (choice) {
                 case 1:
                     ADD_Stationeries();
@@ -81,6 +95,7 @@ public class ListProducts {
                     ADD_Drinks();
                     break;
                 case 0:
+                    flag = false;
                     System.out.println("OUT.");
                     break;
                 default:
@@ -91,13 +106,15 @@ public class ListProducts {
 
     private void ADD_Stationeries() {
         try {
-            BufferedReader fw = new BufferedReader(new FileReader("List_Stationeries.txt"));
+            BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
             int count = 0;
             while (fw.readLine() != null) {
                 ++count;
             }
             fw.close();
-            BufferedReader ft = new BufferedReader(new FileReader("List_Stationeries.txt"));
+            BufferedReader ft = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
             this.SanPham = new Products[count];
 
             for (int i = 0; i < count; i++) {
@@ -109,7 +126,8 @@ public class ListProducts {
 
             System.out.print("The number of products you want to add: ");
             n = this.reader.nextInt();
-            BufferedWriter fr = new BufferedWriter(new FileWriter("List_Stationeries.txt", true));
+            BufferedWriter fr = new BufferedWriter(
+                    new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt", true));
 
             // ------------------------------------------------------------------------------------------------------------------------------//
             for (int i = 0; i < n; ++i) {
@@ -121,7 +139,7 @@ public class ListProducts {
                 if (!SanPham.get_maSP().isEmpty() && !SanPham.get_tenSP().isEmpty() &&
                         SanPham.get_giaMua() > 0 && SanPham.get_giaBan() > 0 &&
                         !SanPham.get_nhaCungcap().isEmpty() && SanPham.get_soLuong() > 0 &&
-                        ((Stationeries) SanPham).get_loaiSP() != null) {
+                        ((Stationeries) SanPham).get_Sta_Type() != null) {
                     for (int j = 0; j < count; ++j) {
                         if (temp.equals(this.SanPham[j].get_maSP())) {
                             System.out.println("Products already available!");
@@ -135,7 +153,7 @@ public class ListProducts {
                 }
 
                 if (!signal) {
-                    fr.write(SanPham.toString());
+                    fr.write(SanPham.Xuat_file());
                     fr.newLine();
                     System.out.println("Stationeries added successfully.");
                 }
@@ -154,13 +172,15 @@ public class ListProducts {
 
     private void ADD_Personal_Belongings() {
         try {
-            BufferedReader fw = new BufferedReader(new FileReader("List_Personal_Belongings.txt"));
+            BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
             int count = 0;
             while (fw.readLine() != null) {
                 ++count;
             }
             fw.close();
-            BufferedReader ft = new BufferedReader(new FileReader("List_Personal_Belongings.txt"));
+            BufferedReader ft = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
             this.SanPham = new Products[count];
 
             for (int i = 0; i < count; i++) {
@@ -172,7 +192,8 @@ public class ListProducts {
 
             System.out.print("The number of products you want to add: ");
             n = this.reader.nextInt();
-            BufferedWriter fr = new BufferedWriter(new FileWriter("List_Personal_Belongings.txt", true));
+            BufferedWriter fr = new BufferedWriter(
+                    new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt", true));
 
             // ------------------------------------------------------------------------------------------------------------------------------//
             for (int i = 0; i < n; ++i) {
@@ -198,7 +219,7 @@ public class ListProducts {
                 }
 
                 if (!signal) {
-                    fr.write(SanPham.toString());
+                    fr.write(SanPham.Xuat_file());
                     fr.newLine();
                     System.out.println("Stationeries added successfully.");
                 }
@@ -217,25 +238,28 @@ public class ListProducts {
 
     private void ADD_Drinks() {
         try {
-            BufferedReader fw = new BufferedReader(new FileReader("List_Drinks.txt"));
+            BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
             int count = 0;
             while (fw.readLine() != null) {
                 ++count;
             }
             fw.close();
-            BufferedReader ft = new BufferedReader(new FileReader("List_Drinks.txt"));
+            BufferedReader ft = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
             this.SanPham = new Products[count];
 
             for (int i = 0; i < count; i++) {
                 String[] data = ft.readLine().split(";");
-                this.SanPham[i] = new Personal_Belongings(data[0], data[1], Integer.parseInt(data[2]),
+                this.SanPham[i] = new Drinks(data[0], data[1], Integer.parseInt(data[2]),
                         Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), data[6]);
 
             }
 
             System.out.print("The number of products you want to add: ");
             n = this.reader.nextInt();
-            BufferedWriter fr = new BufferedWriter(new FileWriter("List_Drinks.txt", true));
+            BufferedWriter fr = new BufferedWriter(
+                    new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt", true));
 
             // ------------------------------------------------------------------------------------------------------------------------------//
             for (int i = 0; i < n; ++i) {
@@ -261,16 +285,16 @@ public class ListProducts {
                 }
 
                 if (!signal) {
-                    fr.write(SanPham.toString());
+                    fr.write(SanPham.Xuat_file());
                     fr.newLine();
-                    System.out.println("Stationeries added successfully.");
+                    System.out.println("Drinks added successfully.");
                 }
             }
 
             // ------------------------------------------------------------------------------------------------------------------------------//
 
-            fr.close();
             ft.close();
+            fr.close();
             this.reader.nextLine();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -283,14 +307,19 @@ public class ListProducts {
     // ================================================================================================================================================================//
 
     public void delete() {
-        int choice = -1;
-        while (choice != 0) {
+        boolean flag = true;
+        while (flag) {
+            System.out.println("\n=======================================================================");
+            System.out.println("-----XOA SAN PHAM!-----");
             System.out.printf("1.Stationeries");
             System.out.printf("\n2.Personal_Belongings");
             System.out.printf("\n3.Drinks");
-            System.out.printf("\n0.Exit");
-            System.out.printf("\nEnter the type of product you want to delete:  ");
-            choice = reader.nextInt();
+            System.out.println("\n0.Exit");
+            System.out.println("----------------");
+            System.out.printf("\n==>Enter the type of product you want to delete: ");
+            int choice = reader.nextInt();
+            System.out.println("\n=======================================================================");
+            reader.nextLine();
             switch (choice) {
                 case 1:
                     DELETE_Stationeries();
@@ -302,6 +331,7 @@ public class ListProducts {
                     DELETE_Drinks();
                     break;
                 case 0:
+                    flag = false;
                     System.out.println("OUT.");
                     break;
                 default:
@@ -312,7 +342,8 @@ public class ListProducts {
 
     public void DELETE_Stationeries() {
         try {
-            BufferedReader fw = new BufferedReader(new FileReader("List_Stationeries.txt"));
+            BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
             ArrayList<Products> productList = new ArrayList<>();
             String line;
             while ((line = fw.readLine()) != null) {
@@ -325,15 +356,17 @@ public class ListProducts {
             fw.close();
 
             System.out.print("Enter the product ID that you want to remove: ");
-            String ma = this.reader.nextLine();
-            BufferedWriter br = new BufferedWriter(new FileWriter("List_Stationeries.txt"));
+            String FIND_ID = this.reader.nextLine();
+            BufferedWriter br = new BufferedWriter(
+                    new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
             boolean signal = false;
 
             for (Products product : productList) {
-                if (!product.get_maSP().equals(ma)) {
-                    br.write(product.toString());
+                if (!product.get_maSP().equals(FIND_ID)) {
+                    br.write(product.Xuat_file());
                     br.newLine();
                 } else {
+                    System.out.println("==---------------------------==");
                     System.out.println("--Deleted Product Information--");
                     product.Xuat();
                     signal = true;
@@ -352,77 +385,87 @@ public class ListProducts {
 
     public void DELETE_Personal_Belongings() {
         try {
-            boolean signal = false;
-            BufferedReader fw = new BufferedReader(new FileReader("List_Personal_Belongings.txt"));
-            int count = 0;
-            while (fw.readLine() != null) {
-                ++count;
+            BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
+            ArrayList<Products> productList = new ArrayList<>();
+            String line;
+            while ((line = fw.readLine()) != null) {
+                String[] data = line.split(";");
+                if (data.length == 7) {
+                    productList.add(new Personal_Belongings(data[0], data[1], Integer.parseInt(data[2]),
+                            Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), data[6]));
+                }
             }
             fw.close();
-            BufferedReader ft = new BufferedReader(new FileReader("List_Personal_Belongings.txt"));
-            this.SanPham = new Products[count];
 
             System.out.print("Enter the product ID that you want to remove: ");
-            String ma = this.reader.nextLine();
-            BufferedWriter br = new BufferedWriter(new FileWriter("List_Personal_Belongings.txt"));
+            String FIND_ID = this.reader.nextLine();
+            BufferedWriter br = new BufferedWriter(
+                    new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
+            boolean signal = false;
 
-            for (int i = 0; i < this.SanPham.length; ++i) {
-                if (ma.equals(this.SanPham[i].get_maSP())) {
-                    System.out.println("--Deleted Product Information-");
-                    this.SanPham[i].Xuat();
-                    signal = true;
-                } else {
-                    br.write(this.SanPham[i].toString());
+            for (Products product : productList) {
+                if (!product.get_maSP().equals(FIND_ID)) {
+                    br.write(product.Xuat_file());
                     br.newLine();
+                } else {
+                    System.out.println("==---------------------------==");
+                    System.out.println("--Deleted Product Information--");
+                    product.Xuat();
+                    signal = true;
                 }
             }
 
             if (!signal) {
-                System.out.println("No products to remove in the list!\n");
+                System.out.println("No products to remove in the list!");
             }
 
             br.close();
-            ft.close();
-        } catch (Exception var8) {
-            var8.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
     public void DELETE_Drinks() {
         try {
-            boolean signal = false;
-            BufferedReader fw = new BufferedReader(new FileReader("List_Drinks.txt"));
-            int count = 0;
-            while (fw.readLine() != null) {
-                ++count;
+            BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
+            ArrayList<Products> productList = new ArrayList<>();
+            String line;
+            while ((line = fw.readLine()) != null) {
+                String[] data = line.split(";");
+                if (data.length == 7) {
+                    productList.add(new Drinks(data[0], data[1], Integer.parseInt(data[2]),
+                            Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), data[6]));
+                }
             }
             fw.close();
-            BufferedReader ft = new BufferedReader(new FileReader("List_Drinks.txt"));
-            this.SanPham = new Products[count];
 
             System.out.print("Enter the product ID that you want to remove: ");
-            String ma = this.reader.nextLine();
-            BufferedWriter br = new BufferedWriter(new FileWriter("List_Drinks.txt"));
+            String FIND_ID = this.reader.nextLine();
+            BufferedWriter br = new BufferedWriter(
+                    new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
+            boolean signal = false;
 
-            for (int i = 0; i < this.SanPham.length; ++i) {
-                if (ma.equals(this.SanPham[i].get_maSP())) {
-                    System.out.println("--Deleted Product Information-");
-                    this.SanPham[i].Xuat();
-                    signal = true;
-                } else {
-                    br.write(this.SanPham[i].toString());
+            for (Products product : productList) {
+                if (!product.get_maSP().equals(FIND_ID)) {
+                    br.write(product.Xuat_file());
                     br.newLine();
+                } else {
+                    System.out.println("==---------------------------==");
+                    System.out.println("--Deleted Product Information--");
+                    product.Xuat();
+                    signal = true;
                 }
             }
 
             if (!signal) {
-                System.out.println("No products to remove in the list!\n");
+                System.out.println("No products to remove in the list!");
             }
 
             br.close();
-            ft.close();
-        } catch (Exception var8) {
-            var8.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -433,11 +476,11 @@ public class ListProducts {
     private ArrayList<Products> allProducts = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
-    // Đọc 3 file và tìm kiếm sản phẩm
     public void find() {
         try {
             // Đọc file Stationeries
-            BufferedReader brStationeries = new BufferedReader(new FileReader("List_Stationeries.txt"));
+            BufferedReader brStationeries = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
             String line;
             while ((line = brStationeries.readLine()) != null) {
                 String[] data = line.split(";");
@@ -449,7 +492,8 @@ public class ListProducts {
             brStationeries.close();
 
             // Đọc file Personal_Belongings
-            BufferedReader brPersonalBelongings = new BufferedReader(new FileReader("List_Personal_Belongings.txt"));
+            BufferedReader brPersonalBelongings = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
             while ((line = brPersonalBelongings.readLine()) != null) {
                 String[] data = line.split(";");
                 if (data.length == 7) {
@@ -460,7 +504,8 @@ public class ListProducts {
             brPersonalBelongings.close();
 
             // Đọc file Drinks
-            BufferedReader brDrinks = new BufferedReader(new FileReader("List_Drinks.txt"));
+            BufferedReader brDrinks = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
             while ((line = brDrinks.readLine()) != null) {
                 String[] data = line.split(";");
                 if (data.length == 7) {
@@ -478,8 +523,8 @@ public class ListProducts {
         searchProductByCode();
     }
 
-    // Tìm kiếm sản phẩm theo mã
     public void searchProductByCode() {
+        System.out.println("\n=======================================================================");
         System.out.print("Enter the product code to search: ");
         String searchID = scanner.nextLine();
 
@@ -488,7 +533,7 @@ public class ListProducts {
         // Duyệt qua tất cả các sản phẩm và so sánh mã sản phẩm
         for (Products product : allProducts) {
             if (product.get_maSP().equals(searchID)) {
-                System.out.println("Product found:");
+                System.out.println("------Product found:");
                 product.Xuat(); // Hiển thị thông tin sản phẩm
                 found = true;
                 break;
@@ -496,7 +541,7 @@ public class ListProducts {
         }
 
         if (!found) {
-            System.out.println("Product with code " + searchID + " not found.");
+            System.out.println("==>Product with code " + searchID + " not found>.");
         }
     }
 
@@ -505,14 +550,18 @@ public class ListProducts {
     // ================================================================================================================================================================//
 
     public void show() {
-        int choice = -1;
-        while (choice != 0) {
+        boolean flag = true;
+        while (flag) {
+            System.out.println("\n=======================================================================");
+            System.out.println("-----HIEN THONG TIN SAN PHAM!-----");
             System.out.printf("1.Stationeries");
             System.out.printf("\n2.Personal_Belongings");
             System.out.printf("\n3.Drinks");
-            System.out.printf("\n0.Exit");
-            System.out.printf("\nEnter the type of product you want to show: ");
-            choice = reader.nextInt();
+            System.out.println("\n0.Exit");
+            System.out.println("----------------");
+            System.out.printf("\nNhap lua chon: ");
+            int choice = reader.nextInt();
+            System.out.println("\n==>=======================================================================");
             switch (choice) {
                 case 1:
                     SHOW_Stationeries();
@@ -524,6 +573,7 @@ public class ListProducts {
                     SHOW_Drinks();
                     break;
                 case 0:
+                    flag = false;
                     System.out.println("OUT.");
                     break;
                 default:
@@ -534,7 +584,8 @@ public class ListProducts {
 
     public void SHOW_Stationeries() {
         try {
-            BufferedReader fw = new BufferedReader(new FileReader("List_Stationeries.txt"));
+            BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
 
             String st;
             int i = 1; // Biến đếm để đánh số sản phẩm
@@ -560,7 +611,8 @@ public class ListProducts {
 
     public void SHOW_Personal_Belongings() {
         try {
-            BufferedReader fw = new BufferedReader(new FileReader("List_Personal_Belongings.txt"));
+            BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
 
             String st;
             int i = 1; // Biến đếm để đánh số sản phẩm
@@ -585,7 +637,7 @@ public class ListProducts {
 
     public void SHOW_Drinks() {
         try {
-            BufferedReader fw = new BufferedReader(new FileReader("List_Drinks.txt"));
+            BufferedReader fw = new BufferedReader(new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
 
             String st;
             int i = 1; // Biến đếm để đánh số sản phẩm
@@ -613,14 +665,19 @@ public class ListProducts {
     // ================================================================================================================================================================//
 
     public void edit() {
-        int choice = -1;
-        while (choice != 0) {
+        boolean flag = true;
+        while (flag) {
+            System.out.println("\n=======================================================================");
+            System.out.println("-----SUA THONG TIN SAN PHAM!-----");
             System.out.printf("1.Stationeries");
             System.out.printf("\n2.Personal_Belongings");
             System.out.printf("\n3.Drinks");
-            System.out.printf("\n0.Exit");
-            System.out.printf("\nEnter the type of product you want to edit: ");
-            choice = reader.nextInt();
+            System.out.println("\n0.Exit");
+            System.out.println("----------------");
+            System.out.printf("\n==>Enter the type of product you want to edit: ");
+            int choice = reader.nextInt();
+            reader.nextLine();
+            System.out.println("\n=======================================================================");
             switch (choice) {
                 case 1:
                     EDIT_Stationeries();
@@ -632,6 +689,7 @@ public class ListProducts {
                     EDIT_Drinks();
                     break;
                 case 0:
+                    flag = false;
                     System.out.println("OUT.");
                     break;
                 default:
@@ -645,12 +703,14 @@ public class ListProducts {
             int count = 0;
             boolean signal = false;
 
-            for (BufferedReader fw = new BufferedReader(new FileReader("List_Stationeries.txt")); fw
-                    .readLine() != null; ++count) {
+            for (BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt")); fw
+                            .readLine() != null; ++count) {
             }
 
             this.SanPham = (Products[]) Arrays.copyOf(this.SanPham, count);
-            BufferedReader ft = new BufferedReader(new FileReader("List_Stationeries.txt"));
+            BufferedReader ft = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 // Đọc dòng từ file và tách bằng dấu ";"
@@ -663,7 +723,8 @@ public class ListProducts {
 
             System.out.print("\nEnter the product ID that you want to edit: ");
             String ma = this.reader.nextLine();
-            BufferedWriter br = new BufferedWriter(new FileWriter("List_Stationeries.txt"));
+            BufferedWriter br = new BufferedWriter(
+                    new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 if (ma.equals(this.SanPham[i].get_maSP())) {
@@ -671,11 +732,11 @@ public class ListProducts {
                     this.SanPham[i].Xuat();
                     System.out.println("--Please enter the product information to be edited--");
                     this.SanPham[i].NhapLieu();
-                    br.write(this.SanPham[i].toString());
+                    br.write(this.SanPham[i].Xuat_file());
                     br.newLine();
                     signal = true;
                 } else {
-                    br.write(this.SanPham[i].toString());
+                    br.write(this.SanPham[i].Xuat_file());
                     br.newLine();
                 }
             }
@@ -697,12 +758,14 @@ public class ListProducts {
             int count = 0;
             boolean signal = false;
 
-            for (BufferedReader fw = new BufferedReader(new FileReader("List_Personal_Belongings.txt")); fw
-                    .readLine() != null; ++count) {
+            for (BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt")); fw
+                            .readLine() != null; ++count) {
             }
 
             this.SanPham = (Products[]) Arrays.copyOf(this.SanPham, count);
-            BufferedReader ft = new BufferedReader(new FileReader("List_Personal_Belongings.txt"));
+            BufferedReader ft = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 // Đọc dòng từ file và tách bằng dấu ";"
@@ -715,7 +778,8 @@ public class ListProducts {
 
             System.out.print("\nEnter the product ID that you want to edit: ");
             String ma = this.reader.nextLine();
-            BufferedWriter br = new BufferedWriter(new FileWriter("List_Personal_Belongings.txt"));
+            BufferedWriter br = new BufferedWriter(
+                    new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 if (ma.equals(this.SanPham[i].get_maSP())) {
@@ -723,11 +787,11 @@ public class ListProducts {
                     this.SanPham[i].Xuat();
                     System.out.println("--Please enter the product information to be edited--");
                     this.SanPham[i].NhapLieu();
-                    br.write(this.SanPham[i].toString());
+                    br.write(this.SanPham[i].Xuat_file());
                     br.newLine();
                     signal = true;
                 } else {
-                    br.write(this.SanPham[i].toString());
+                    br.write(this.SanPham[i].Xuat_file());
                     br.newLine();
                 }
             }
@@ -748,12 +812,13 @@ public class ListProducts {
             int count = 0;
             boolean signal = false;
 
-            for (BufferedReader fw = new BufferedReader(new FileReader("List_Drinks.txt")); fw
-                    .readLine() != null; ++count) {
+            for (BufferedReader fw = new BufferedReader(
+                    new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt")); fw
+                            .readLine() != null; ++count) {
             }
 
             this.SanPham = (Products[]) Arrays.copyOf(this.SanPham, count);
-            BufferedReader ft = new BufferedReader(new FileReader("List_Drinks.txt"));
+            BufferedReader ft = new BufferedReader(new FileReader("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 // Đọc dòng từ file và tách bằng dấu ";"
@@ -766,7 +831,7 @@ public class ListProducts {
 
             System.out.print("\nEnter the product ID that you want to edit: ");
             String ma = this.reader.nextLine();
-            BufferedWriter br = new BufferedWriter(new FileWriter("List_Drinks.txt"));
+            BufferedWriter br = new BufferedWriter(new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 if (ma.equals(this.SanPham[i].get_maSP())) {
@@ -774,11 +839,11 @@ public class ListProducts {
                     this.SanPham[i].Xuat();
                     System.out.println("--Please enter the product information to be edited--");
                     this.SanPham[i].NhapLieu();
-                    br.write(this.SanPham[i].toString());
+                    br.write(this.SanPham[i].Xuat_file());
                     br.newLine();
                     signal = true;
                 } else {
-                    br.write(this.SanPham[i].toString());
+                    br.write(this.SanPham[i].Xuat_file());
                     br.newLine();
                 }
             }

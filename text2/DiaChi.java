@@ -77,7 +77,7 @@ public class DiaChi {
     }
 
     public String xuat() {
-        return this.soNha + ", D." + this.duong + ", F." + this.phuong + ", Q." + this.quan + ".";
+        return this.soNha + ", " + this.duong + ", " + this.phuong + ", " + this.quan;
     }
 
     public static void main(String[] args) {

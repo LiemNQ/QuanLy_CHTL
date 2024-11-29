@@ -1,6 +1,7 @@
 package QuanLyCHTL;
 
 import text2.*;
+
 import java.util.Scanner;
 
 public class NhanVien extends ConNguoi {
@@ -66,10 +67,20 @@ public class NhanVien extends ConNguoi {
         System.out.printf("Ngay vao lam: %s\n", this.ngayVaoLam.xuat());
     }
 
+    public String xuat_file() {
+        return maNV + ", " + getHoTen() + ", " + getNgaySinh().xuat() + ", " + getGioiTinh() + ", " + getDiaChi().xuat()
+                + ", " + getSDT() + ", " + getNgayVaoLam().xuat();
+    }
+
+    public void xuat_DinhDang() {
+        System.out.printf("%-6s| %-20s| %-12s| %-4s| %-50s| %-11s| %-30s|\n", maNV, getHoTen(),
+                getNgaySinh().xuat(), getGioiTinh(), getDiaChi().xuat(), getSDT(), getNgayVaoLam().xuat());
+    }
+
     public static void main(String[] args) {
         NhanVien nv1 = new NhanVien();
         nv1.nhap();
-        nv1.xuat();
+        nv1.xuat_DinhDang();
     }
 
 }

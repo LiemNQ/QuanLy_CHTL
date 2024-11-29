@@ -86,32 +86,6 @@ public abstract class Products {
 
     public abstract void Xuat();
 
-    // --------------------------------------------------------------------------------------------------------------------------//
-    // ============================================================================================================================//
-    // --------------------------------------------------------------------------------------------------------------------------//
-    // public void NhapLieu() {
-    // System.out.println("\nNhap ten san pham :");
-    // this.tenSP = reader.nextLine();
-    // System.out.println("\nNhap ma san pham :");
-    // this.maSP = reader.nextLine();
-    // System.out.println("\nNhap gia mua vao san pham :");
-    // this.giaMua = reader.nextInt();
-    // System.out.println("\nNhap gia ban san pham :");
-    // this.giaBan = reader.nextInt();
+    public abstract String Xuat_file();
 
-    // reader.nextLine();
-    // System.out.println("\nNhap nha cung cap cua san pham :");
-    // this.nhaCungcap = reader.nextLine();
-    // System.out.println("\nNhap so luong san pham :");
-    // this.soLuong = reader.nextInt();
-    // }
-
-    // public void Xuat() {
-    // System.out.println("Ten san pham :" + this.tenSP);
-    // System.out.println("Ma san pham :" + this.maSP);
-    // System.out.println("Gia mua san pham :" + this.giaMua);
-    // System.out.println("Gia ban san pham :" + this.giaBan);
-    // System.out.println("Nha cung cap san pham :" + this.nhaCungcap);
-    // System.out.println("So luong san pham :" + this.soLuong);
-    // }
 }
