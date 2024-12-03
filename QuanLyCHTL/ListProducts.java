@@ -21,19 +21,19 @@ public class ListProducts {
         this.n = 0;
     }
 
-    public void MENU() {
+    public void MENU_PRODUCTS() {
         int choice = -1;
         while (choice != 0) {
             System.out.println("\n=======================================================================");
             System.out.println("----------MENU----------");
-            System.out.printf("1.ADD PRODUCT");
-            System.out.printf("\n2.DELETE PRODUCT");
-            System.out.printf("\n3.SHOW PRODUCT");
-            System.out.printf("\n4.FIND PRODUCT");
-            System.out.printf("\n5.EDIT PRODUCT");
+            System.out.printf("1.THEM SAN PHAM");
+            System.out.printf("\n2.XOA SAN PHAM");
+            System.out.printf("\n3.HIEN THI SAN PHAM");
+            System.out.printf("\n4.TIM SAN PHAM");
+            System.out.printf("\n5.SUA THONG TIN SAN PHAM");
             System.out.println("\n0.Exit");
             System.out.println("----------------");
-            System.out.printf("\n==>Nhap lua chon: ");
+            System.out.printf("\n==>NHAP LUA CHON: ");
             choice = reader.nextInt();
             System.out.println("\n=======================================================================");
             switch (choice) {
@@ -56,14 +56,14 @@ public class ListProducts {
                     System.out.println("OUT.");
                     break;
                 default:
-                    System.out.println("Lua chon khong hop le!");
+                    System.out.println("LUA CHON KHONG HOP LE!");
             }
         }
     }
 
     public static void main(String[] args) {
         ListProducts ob = new ListProducts();
-        ob.MENU();
+        ob.MENU_PRODUCTS();
     }
 
     // ================================================================================================================================================================//
@@ -75,12 +75,12 @@ public class ListProducts {
         while (flag) {
             System.out.println("\n=======================================================================");
             System.out.println("-----THEM SAN PHAM!-----");
-            System.out.printf("1.Stationeries");
-            System.out.printf("\n2.Personal_Belongings");
-            System.out.printf("\n3.Drinks");
+            System.out.printf("1.VAN PHONG PHAM");
+            System.out.printf("\n2.DO DUNG CA NHAN");
+            System.out.printf("\n3.THUC UONG");
             System.out.println("\n0.Exit");
             System.out.println("----------------");
-            System.out.printf("\n==>Enter the type of product you want to add: ");
+            System.out.printf("\n==>NHAP LUA CHON: ");
             int choice = reader.nextInt();
             System.out.println("\n=======================================================================");
             reader.nextLine();
@@ -99,7 +99,7 @@ public class ListProducts {
                     System.out.println("OUT.");
                     break;
                 default:
-                    System.out.println("Invalid selection!");
+                    System.out.println("LUA CHON KHONG HOP LE!");
             }
         }
     }
@@ -124,7 +124,7 @@ public class ListProducts {
 
             }
 
-            System.out.print("The number of products you want to add: ");
+            System.out.print("Nhap so san pham muon them vao: ");
             n = this.reader.nextInt();
             BufferedWriter fr = new BufferedWriter(
                     new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt", true));
@@ -133,7 +133,7 @@ public class ListProducts {
             for (int i = 0; i < n; ++i) {
                 boolean signal = false;
                 Products SanPham = new Stationeries();
-                System.out.println("Please enter your product information!\n");
+                System.out.println("Hay nhap thong tin san pham!\n");
                 SanPham.NhapLieu();
                 String temp = SanPham.get_maSP();
                 if (!SanPham.get_maSP().isEmpty() && !SanPham.get_tenSP().isEmpty() &&
@@ -142,20 +142,20 @@ public class ListProducts {
                         ((Stationeries) SanPham).get_Sta_Type() != null) {
                     for (int j = 0; j < count; ++j) {
                         if (temp.equals(this.SanPham[j].get_maSP())) {
-                            System.out.println("Products already available!");
+                            System.out.println("San pham da ton tai!");
                             signal = true;
                             break;
                         }
                     }
                 } else {
-                    System.out.println("You enter missing information!");
+                    System.out.println("BAN DA NHAP SAI THONG TIN!");
                     signal = true;
                 }
 
                 if (!signal) {
                     fr.write(SanPham.Xuat_file());
-                    fr.newLine();
-                    System.out.println("Stationeries added successfully.");
+                    fr.write("\n");
+                    System.out.println("THEM SAN PHAM HOAN THANH.");
                 }
             }
 
@@ -190,7 +190,7 @@ public class ListProducts {
 
             }
 
-            System.out.print("The number of products you want to add: ");
+            System.out.print("Nhap so san pham ban muon them: ");
             n = this.reader.nextInt();
             BufferedWriter fr = new BufferedWriter(
                     new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt", true));
@@ -199,7 +199,7 @@ public class ListProducts {
             for (int i = 0; i < n; ++i) {
                 boolean signal = false;
                 Products SanPham = new Personal_Belongings();
-                System.out.println("Please enter your product information!\n");
+                System.out.println("Nhap thong tin san pham!\n");
                 SanPham.NhapLieu();
                 String temp = SanPham.get_maSP();
                 if (!SanPham.get_maSP().isEmpty() && !SanPham.get_tenSP().isEmpty() &&
@@ -208,20 +208,20 @@ public class ListProducts {
                         ((Personal_Belongings) SanPham).get_Personal_Belongings_type() != null) {
                     for (int j = 0; j < count; ++j) {
                         if (temp.equals(this.SanPham[j].get_maSP())) {
-                            System.out.println("Products already available!");
+                            System.out.println("San pham da ton tai!");
                             signal = true;
                             break;
                         }
                     }
                 } else {
-                    System.out.println("You enter missing information!");
+                    System.out.println("BAN NHAP SAI THONG TIN!");
                     signal = true;
                 }
 
                 if (!signal) {
                     fr.write(SanPham.Xuat_file());
-                    fr.newLine();
-                    System.out.println("Stationeries added successfully.");
+                    fr.write("\n");
+                    System.out.println("THEM SAN PHAM HOAN THANH.");
                 }
             }
 
@@ -256,7 +256,7 @@ public class ListProducts {
 
             }
 
-            System.out.print("The number of products you want to add: ");
+            System.out.print("Nhap so san pham ban muon them: ");
             n = this.reader.nextInt();
             BufferedWriter fr = new BufferedWriter(
                     new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt", true));
@@ -265,7 +265,7 @@ public class ListProducts {
             for (int i = 0; i < n; ++i) {
                 boolean signal = false;
                 Products SanPham = new Drinks();
-                System.out.println("Please enter your product information!\n");
+                System.out.println("Hay nhap thong tin san pham!\n");
                 SanPham.NhapLieu();
                 String temp = SanPham.get_maSP();
                 if (!SanPham.get_maSP().isEmpty() && !SanPham.get_tenSP().isEmpty() &&
@@ -274,20 +274,20 @@ public class ListProducts {
                         ((Drinks) SanPham).get_Drinks_type() != null) {
                     for (int j = 0; j < count; ++j) {
                         if (temp.equals(this.SanPham[j].get_maSP())) {
-                            System.out.println("Products already available!");
+                            System.out.println("San pham da ton tai!");
                             signal = true;
                             break;
                         }
                     }
                 } else {
-                    System.out.println("You enter missing information!");
+                    System.out.println("BAN NHAP SAI THONG TIN!");
                     signal = true;
                 }
 
                 if (!signal) {
                     fr.write(SanPham.Xuat_file());
-                    fr.newLine();
-                    System.out.println("Drinks added successfully.");
+                    fr.write("\n");
+                    System.out.println("THEM SAN PHAM HOAN THANH.");
                 }
             }
 
@@ -311,12 +311,12 @@ public class ListProducts {
         while (flag) {
             System.out.println("\n=======================================================================");
             System.out.println("-----XOA SAN PHAM!-----");
-            System.out.printf("1.Stationeries");
-            System.out.printf("\n2.Personal_Belongings");
-            System.out.printf("\n3.Drinks");
+            System.out.printf("1.VAN PHONG PHAM");
+            System.out.printf("\n2.DO DUNG CA NHAN");
+            System.out.printf("\n3.DO UONG");
             System.out.println("\n0.Exit");
             System.out.println("----------------");
-            System.out.printf("\n==>Enter the type of product you want to delete: ");
+            System.out.printf("\n==>NHAP LUA CHON: ");
             int choice = reader.nextInt();
             System.out.println("\n=======================================================================");
             reader.nextLine();
@@ -355,7 +355,7 @@ public class ListProducts {
             }
             fw.close();
 
-            System.out.print("Enter the product ID that you want to remove: ");
+            System.out.print("Nhap ma san pham ban muon xoa: ");
             String FIND_ID = this.reader.nextLine();
             BufferedWriter br = new BufferedWriter(
                     new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
@@ -367,14 +367,14 @@ public class ListProducts {
                     br.newLine();
                 } else {
                     System.out.println("==---------------------------==");
-                    System.out.println("--Deleted Product Information--");
+                    System.out.println("--Thong tin san pham xoa--");
                     product.Xuat();
                     signal = true;
                 }
             }
 
             if (!signal) {
-                System.out.println("No products to remove in the list!");
+                System.out.println("Khong co san pham nay trong danh sach!");
             }
 
             br.close();
@@ -398,7 +398,7 @@ public class ListProducts {
             }
             fw.close();
 
-            System.out.print("Enter the product ID that you want to remove: ");
+            System.out.print("Nhap ma san pham muon xoa: ");
             String FIND_ID = this.reader.nextLine();
             BufferedWriter br = new BufferedWriter(
                     new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
@@ -410,14 +410,14 @@ public class ListProducts {
                     br.newLine();
                 } else {
                     System.out.println("==---------------------------==");
-                    System.out.println("--Deleted Product Information--");
+                    System.out.println("--Thong tin san pham xoa--");
                     product.Xuat();
                     signal = true;
                 }
             }
 
             if (!signal) {
-                System.out.println("No products to remove in the list!");
+                System.out.println("Khong co san pham trong danh sach!");
             }
 
             br.close();
@@ -441,7 +441,7 @@ public class ListProducts {
             }
             fw.close();
 
-            System.out.print("Enter the product ID that you want to remove: ");
+            System.out.print("Nhap ma san pham muon xoa: ");
             String FIND_ID = this.reader.nextLine();
             BufferedWriter br = new BufferedWriter(
                     new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
@@ -453,14 +453,14 @@ public class ListProducts {
                     br.newLine();
                 } else {
                     System.out.println("==---------------------------==");
-                    System.out.println("--Deleted Product Information--");
+                    System.out.println("--Thong tin san pham xoa--");
                     product.Xuat();
                     signal = true;
                 }
             }
 
             if (!signal) {
-                System.out.println("No products to remove in the list!");
+                System.out.println("Khong co san pham trong danh sach!");
             }
 
             br.close();
@@ -525,7 +525,7 @@ public class ListProducts {
 
     public void searchProductByCode() {
         System.out.println("\n=======================================================================");
-        System.out.print("Enter the product code to search: ");
+        System.out.print("Nhap ma san pham can tim: ");
         String searchID = scanner.nextLine();
 
         boolean found = false;
@@ -533,15 +533,16 @@ public class ListProducts {
         // Duyệt qua tất cả các sản phẩm và so sánh mã sản phẩm
         for (Products product : allProducts) {
             if (product.get_maSP().equals(searchID)) {
-                System.out.println("------Product found:");
-                product.Xuat(); // Hiển thị thông tin sản phẩm
+                System.out.printf("%-20s| %-6s| %-10s| %-10s| %-25s| %-10s| %-20s|\n", "ten san pham", "ma SP",
+                        "gia mua", "gia ban", "nha cung cap", "so luong", "loai");
+                product.Xuat_form(); // Hiển thị thông tin sản phẩm
                 found = true;
                 break;
             }
         }
 
         if (!found) {
-            System.out.println("==>Product with code " + searchID + " not found>.");
+            System.out.println("==>san pham co ma " + searchID + " khong ton tai>.");
         }
     }
 
@@ -554,9 +555,9 @@ public class ListProducts {
         while (flag) {
             System.out.println("\n=======================================================================");
             System.out.println("-----HIEN THONG TIN SAN PHAM!-----");
-            System.out.printf("1.Stationeries");
-            System.out.printf("\n2.Personal_Belongings");
-            System.out.printf("\n3.Drinks");
+            System.out.printf("1.VAN PHONG PHAM");
+            System.out.printf("\n2.DO DUNG CA NHAN");
+            System.out.printf("\n3.DO UONG");
             System.out.println("\n0.Exit");
             System.out.println("----------------");
             System.out.printf("\nNhap lua chon: ");
@@ -590,15 +591,16 @@ public class ListProducts {
             String st;
             int i = 1; // Biến đếm để đánh số sản phẩm
 
+            System.out.printf("%-20s| %-6s| %-10s| %-10s| %-25s| %-10s| %-20s|\n", "ten san pham", "ma SP",
+                    "gia mua", "gia ban", "nha cung cap", "so luong", "loai");
             while ((st = fw.readLine()) != null) { // Đọc từng dòng trong file
-                System.out.println("--Product " + i + " :");
                 String[] data = st.split(";"); // Tách dữ liệu bằng dấu ";"
 
                 // Tạo đối tượng sản phẩm từ dữ liệu đọc được
                 Products DS = new Stationeries(data[0], data[1], Integer.parseInt(data[2]),
                         Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), data[6]);
 
-                DS.Xuat(); // Hiển thị thông tin sản phẩm
+                DS.Xuat_form(); // Hiển thị thông tin sản phẩm
                 i++; // Tăng biến đếm
             }
 
@@ -617,15 +619,17 @@ public class ListProducts {
             String st;
             int i = 1; // Biến đếm để đánh số sản phẩm
 
+            System.out.printf("%-20s| %-6s| %-10s| %-10s| %-25s| %-10s| %-20s|\n", "ten san pham", "ma SP",
+                    "gia mua", "gia ban", "nha cung cap", "so luong", "loai");
             while ((st = fw.readLine()) != null) { // Đọc từng dòng trong file
-                System.out.println("--Product " + i + " :");
+
                 String[] data = st.split(";"); // Tách dữ liệu bằng dấu ";"
 
                 // Tạo đối tượng sản phẩm từ dữ liệu đọc được
                 Products DS = new Personal_Belongings(data[0], data[1], Integer.parseInt(data[2]),
                         Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), data[6]);
 
-                DS.Xuat(); // Hiển thị thông tin sản phẩm
+                DS.Xuat_form(); // Hiển thị thông tin sản phẩm
                 i++; // Tăng biến đếm
             }
             fw.close();
@@ -642,15 +646,16 @@ public class ListProducts {
             String st;
             int i = 1; // Biến đếm để đánh số sản phẩm
 
+            System.out.printf("%-20s| %-6s| %-10s| %-10s| %-25s| %-10s| %-20s|\n", "ten san pham", "ma SP",
+                    "gia mua", "gia ban", "nha cung cap", "so luong", "loai");
             while ((st = fw.readLine()) != null) { // Đọc từng dòng trong file
-                System.out.println("--Product " + i + " :");
                 String[] data = st.split(";"); // Tách dữ liệu bằng dấu ";"
 
                 // Tạo đối tượng sản phẩm từ dữ liệu đọc được
                 Products DS = new Drinks(data[0], data[1], Integer.parseInt(data[2]),
                         Integer.parseInt(data[3]), data[4], Integer.parseInt(data[5]), data[6]);
 
-                DS.Xuat(); // Hiển thị thông tin sản phẩm
+                DS.Xuat_form(); // Hiển thị thông tin sản phẩm
                 i++; // Tăng biến đếm
             }
             fw.close();
@@ -669,12 +674,12 @@ public class ListProducts {
         while (flag) {
             System.out.println("\n=======================================================================");
             System.out.println("-----SUA THONG TIN SAN PHAM!-----");
-            System.out.printf("1.Stationeries");
-            System.out.printf("\n2.Personal_Belongings");
-            System.out.printf("\n3.Drinks");
+            System.out.printf("1.VAN PHONG PHAM");
+            System.out.printf("\n2.DO DUNG CA NHAN");
+            System.out.printf("\n3.DO UONG");
             System.out.println("\n0.Exit");
             System.out.println("----------------");
-            System.out.printf("\n==>Enter the type of product you want to edit: ");
+            System.out.printf("\n==>Nhap lua chon: ");
             int choice = reader.nextInt();
             reader.nextLine();
             System.out.println("\n=======================================================================");
@@ -721,16 +726,17 @@ public class ListProducts {
                         Integer.parseInt(s[3]), s[4], Integer.parseInt(s[5]), s[6]);
             }
 
-            System.out.print("\nEnter the product ID that you want to edit: ");
+            System.out.print("\nNhap ma san pham ban muon sua: ");
             String ma = this.reader.nextLine();
             BufferedWriter br = new BufferedWriter(
                     new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Stationeries.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 if (ma.equals(this.SanPham[i].get_maSP())) {
-                    System.out.println("--Product information that you need to edit--");
-                    this.SanPham[i].Xuat();
-                    System.out.println("--Please enter the product information to be edited--");
+                    System.out.println("--Thong tin san pham sua--");
+                    this.SanPham[i].Xuat_form();
+
+                    System.out.println("--Hay nhap thong tin moi--");
                     this.SanPham[i].NhapLieu();
                     br.write(this.SanPham[i].Xuat_file());
                     br.newLine();
@@ -776,16 +782,16 @@ public class ListProducts {
                         Integer.parseInt(s[3]), s[4], Integer.parseInt(s[5]), s[6]);
             }
 
-            System.out.print("\nEnter the product ID that you want to edit: ");
+            System.out.print("\nNhap ma san pham can sua: ");
             String ma = this.reader.nextLine();
             BufferedWriter br = new BufferedWriter(
                     new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Personal_Belongings.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 if (ma.equals(this.SanPham[i].get_maSP())) {
-                    System.out.println("--Product information that you need to edit--");
-                    this.SanPham[i].Xuat();
-                    System.out.println("--Please enter the product information to be edited--");
+                    System.out.println("--Thong tin san pham sua--");
+                    this.SanPham[i].Xuat_form();
+                    System.out.println("--Thong tin san pham moi--");
                     this.SanPham[i].NhapLieu();
                     br.write(this.SanPham[i].Xuat_file());
                     br.newLine();
@@ -829,15 +835,15 @@ public class ListProducts {
                         Integer.parseInt(s[3]), s[4], Integer.parseInt(s[5]), s[6]);
             }
 
-            System.out.print("\nEnter the product ID that you want to edit: ");
+            System.out.print("\nNhap ma san pham can sua: ");
             String ma = this.reader.nextLine();
             BufferedWriter br = new BufferedWriter(new FileWriter("D:\\HK1-24-25\\OOP\\Do-An\\text\\List_Drinks.txt"));
 
             for (int i = 0; i < this.SanPham.length; ++i) {
                 if (ma.equals(this.SanPham[i].get_maSP())) {
-                    System.out.println("--Product information that you need to edit--");
-                    this.SanPham[i].Xuat();
-                    System.out.println("--Please enter the product information to be edited--");
+                    System.out.println("--Thong tin san pham sua--");
+                    this.SanPham[i].Xuat_form();
+                    System.out.println("--Thong tin san pham moi--");
                     this.SanPham[i].NhapLieu();
                     br.write(this.SanPham[i].Xuat_file());
                     br.newLine();

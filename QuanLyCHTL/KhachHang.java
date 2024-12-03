@@ -48,12 +48,13 @@ public class KhachHang extends ConNguoi {
     // Ham nhap khach hang
     @Override
     public void nhap() {
-        Scanner rScanner = new Scanner(System.in);
-        System.out.print("Nhap ma khach hang: ");
-        this.maHk = rScanner.nextLine();
-        super.nhap();
-        System.out.print("Nhap loai khach hang: ");
-        this.loaiKH = rScanner.nextLine();
+        try (Scanner rScanner = new Scanner(System.in)) {
+            System.out.print("Nhap ma khach hang: ");
+            this.maHk = rScanner.nextLine();
+            super.nhap();
+            System.out.print("Nhap loai khach hang: ");
+            this.loaiKH = rScanner.nextLine();
+        }
     }
 
     @Override

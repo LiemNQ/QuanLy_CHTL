@@ -256,7 +256,7 @@ public class ListKhachHang {
     }
 
     // Ham menu
-    public static void menu(ListKhachHang DSKH) {
+    public void MENU_KHACHHANG(ListKhachHang DSKH) {
         boolean flag = true;
         while (flag) {
             System.out.println("1.Nhap danh sach.");
@@ -310,7 +310,7 @@ public class ListKhachHang {
     // Ham main
     public static void main(String[] args) {
         ListKhachHang DSKH = new ListKhachHang();
-        menu(DSKH);
+        DSKH.MENU_KHACHHANG(DSKH);
 
     }
 }

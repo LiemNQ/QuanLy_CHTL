@@ -62,6 +62,11 @@ public class Personal_Belongings extends Products {
         System.out.println("----------------------------------------------------------------------");
     }
 
+    public void Xuat_form() {
+        System.out.printf("%-20s| %-6s| %-10d| %-10d| %-25s| %-10d| %-20s|\n", this.tenSP, this.maSP,
+                this.giaMua, this.giaBan, this.nhaCungcap, this.soLuong, this.Personal_Belongings_type);
+    }
+
     public String Xuat_file() {
         return tenSP + ";" + maSP + ";" + giaMua + ";" + giaBan + ";" + nhaCungcap + ";" + soLuong + ";"
                 + Personal_Belongings_type;

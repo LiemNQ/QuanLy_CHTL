@@ -276,7 +276,7 @@ public class ListNhanVien {
     }
 
     // Ham menu
-    public static void menu(ListNhanVien DSNV) {
+    public void MENU_NHANVIEN(ListNhanVien DSNV) {
         boolean flag = true;
         while (flag) {
             System.out.println("----MENU-----");
@@ -295,22 +295,22 @@ public class ListNhanVien {
             rScanner.nextLine();
             switch (choice) {
                 case 1:
-                    DSNV.nhapDanhSach();
+                    nhapDanhSach();
                     break;
                 case 2:
-                    DSNV.them();
+                    them();
                     break;
                 case 3:
-                    DSNV.sua();
+                    sua();
                     break;
                 case 4:
-                    DSNV.xoa();
+                    xoa();
                     break;
                 case 5:
-                    DSNV.timKiem();
+                    timKiem();
                     break;
                 case 6:
-                    DSNV.xuatDanhSach();
+                    xuatDanhSach();
                     break;
                 case 7:
                     docFile(DSNV);
@@ -330,6 +330,6 @@ public class ListNhanVien {
 
     public static void main(String[] args) {
         ListNhanVien danhsach1 = new ListNhanVien();
-        menu(danhsach1);
+        danhsach1.MENU_NHANVIEN(danhsach1);
     }
 }

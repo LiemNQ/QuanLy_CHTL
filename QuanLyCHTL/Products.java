@@ -88,4 +88,6 @@ public abstract class Products {
 
     public abstract String Xuat_file();
 
+    public abstract void Xuat_form();
+
 }

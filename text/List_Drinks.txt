@@ -1,2 +1,10 @@
-pessi;D001;5;10000;op;1000;nuoc ngot
-coca;D002;6000;10000;op;10000;nuoc ngot
+Nuoc suoi Lavie;D0011;5000;8000;Cong ty Lavie;100;Nuoc suoi  
+Nuoc suoi Aquafina;D0012;4500;7500;PepsiCo Viet Nam;120;Nuoc suoi  
+Tra xanh C2;D0013;6000;10000;URC Viet Nam;80;Tra dong chai  
+Tra O Long Tea+;D0014;7000;11000;Suntory PepsiCo;60;Tra dong chai  
+Coca-Cola lon;D0015;8000;12000;Coca-Cola Viet Nam;90;Nuoc ngot  
+Pepsi lon;D0016;7500;11500;Suntory PepsiCo;100;Nuoc ngot  
+Nuoc tang luc Red Bull;D0017;10000;15000;Red Bull Viet Nam;70;Nuoc tang luc  
+Nuoc tang luc Sting;D0018;9000;14000;Suntory PepsiCo;85;Nuoc tang luc  
+Sua dau nanh Fami;D0019;7000;10000;Vinasoy;50;Sua dau nanh  
+Sua trai cay Nutriboost;D0020;12000;18000;Coca-Cola Viet Nam;60;Sua trai cay

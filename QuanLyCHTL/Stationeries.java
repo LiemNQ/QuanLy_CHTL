@@ -65,4 +65,9 @@ public class Stationeries extends Products {
     public String Xuat_file() {
         return tenSP + ";" + maSP + ";" + giaMua + ";" + giaBan + ";" + nhaCungcap + ";" + soLuong + ";" + Sta_Type;
     }
+
+    public void Xuat_form() {
+        System.out.printf("%-20s| %-6s| %-10d| %-10d| %-25s| %-10d| %-20s|\n", this.tenSP, this.maSP,
+                this.giaMua, this.giaBan, this.nhaCungcap, this.soLuong, this.Sta_Type);
+    }
 }
