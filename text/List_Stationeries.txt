@@ -1,10 +1,10 @@
-But bi Thien Long;VP001;3000;5000;Cong ty Thien Long;500;But viet  
-But chi Staedtler;VP002;5000;8000;Staedtler Viet Nam;300;But viet  
-Tap ke so 96 trang;VP003;7000;12000;Cong ty Hong Ha;200;So tay  
-Giay in A4 Double A;VP004;45000;60000;Double A;150;Giay in  
-Giay dan Note 3x3;VP005;10000;15000;Cong ty Văn phong Xanh;300;Giay dan  
-Kep giay Inox 51mm;VP006;7000;12000;Cong ty Tien Dat;200;Dung cu keo kep  
-But xoa x2;VP007;8000;13000;Cong ty Pentel;250;Dung cu xoa  
-Keo dan Pritt;VP008;15000;20000;Henkel Viet Nam;180;Keo dan  
-File ho so A4;VP009;12000;18000;Cong ty Bao ho Thu do;150;Luu tru  
-Bia kep goc A4;VP010;5000;9000;Cty Văn phong Xanh;300;Dung cu kep giay
+But bi Thien Long;SP0020;3000;5000;Cong ty Thien Long;500;But viet  
+But chi Staedtler;SP002;5000;8000;Staedtler Viet Nam;300;But viet  
+Tap ke so 96 trang;SP003;7000;12000;Cong ty Hong Ha;200;So tay  
+Giay in A4 Double A;SP004;45000;60000;Double A;150;Giay in  
+Giay dan Note 3x3;SP005;10000;15000;Cong ty Văn phong Xanh;300;Giay dan  
+Kep giay Inox 51mm;SP006;7000;12000;Cong ty Tien Dat;200;Dung cu keo kep  
+But xoa x2;SP007;8000;13000;Cong ty Pentel;250;Dung cu xoa  
+Keo dan Pritt;SP008;15000;20000;Henkel Viet Nam;180;Keo dan  
+File ho so A4;SP009;12000;18000;Cong ty Bao ho Thu do;150;Luu tru  
+Bia kep goc A4;SP0010;5000;9000;Cty Văn phong Xanh;300;Dung cu kep giay
